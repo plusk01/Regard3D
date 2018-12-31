@@ -1,0 +1,14 @@
+diff --git a/src/thirdparty/sqlite/CMakeLists.txt b/src/thirdparty/sqlite/CMakeLists.txt
+index f60bb00..aea0f62 100644
+--- a/src/thirdparty/sqlite/CMakeLists.txt
++++ b/src/thirdparty/sqlite/CMakeLists.txt
+@@ -20,3 +20,9 @@ SET(ALL_SRC sqlite3.c)
+ SET(ALL_HEADERS sqlite3.h)
+ 
+ ADD_LIBRARY(sqlite STATIC ${ALL_SRC} ${ALL_HEADERS})
++
++## Fixes the following error:
++# /usr/bin/ld: thirdparty/sqlite/libsqlite.a(sqlite3.c.o): undefined reference to symbol 'dlclose@@GLIBC_2.2.5'
++# /usr/lib/x86_64-linux-gnu/libdl.so: error adding symbols: DSO missing from command line
++# collect2: error: ld returned 1 exit status
++target_link_libraries(sqlite dl)

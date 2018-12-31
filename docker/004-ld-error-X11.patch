@@ -1,0 +1,13 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 34400ac..fc0c9f6 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -678,7 +678,7 @@ ENDIF(APPLE)
+ #echo_targets(${OpenCV_LIBRARIES})
+ #echo_targets(IlmImf)
+ 
+-SET(REGARD3D_LINK_LIBRARIES ${wxWidgets_LIBRARIES})
++SET(REGARD3D_LINK_LIBRARIES ${wxWidgets_LIBRARIES} X11)
+ 
+ IF(DEFINED OSG_PLUGINS)
+ 	SET(REGARD3D_LINK_LIBRARIES ${REGARD3D_LINK_LIBRARIES} ${OSG_PLUGINS})

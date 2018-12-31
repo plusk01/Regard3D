@@ -1,0 +1,13 @@
+diff --git a/src/utils/OpenMVGHelper.cpp b/src/utils/OpenMVGHelper.cpp
+index 4492c81..05bf63d 100644
+--- a/src/utils/OpenMVGHelper.cpp
++++ b/src/utils/OpenMVGHelper.cpp
+@@ -2550,7 +2550,7 @@ void OpenMVGHelper::exportOldSfM_output(const R3DProjectPaths &paths)
+ 						size_t cameraIndex = map_cameratoIndex[id_view];
+ 						set_imageIndex.insert(cameraIndex);
+ 
+-						double z = Depth(iterPose->second.rotation(), iterPose->second.translation(), X);
++						double z = openMVG::Depth(iterPose->second.rotation(), iterPose->second.translation(), X);
+ 						znear[id_view] = std::min(znear[id_view], z);
+ 						zfar[id_view] = std::max(zfar[id_view], z);
+ 

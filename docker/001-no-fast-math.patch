@@ -1,0 +1,107 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 34400ac..722ae08 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -535,8 +535,8 @@ ENDIF(MSVC)
+ IF(CMAKE_COMPILER_IS_GNUCC)
+ 	SET( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -msse2 -mfpmath=sse ${EXTRA_COMPILER_OPTIONS}" )
+ 	SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -msse2 -mfpmath=sse -fpermissive ${EXTRA_COMPILER_OPTIONS}" )
+-	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -msse2 -mfpmath=sse -ffast-math ${EXTRA_COMPILER_OPTIONS}" )
+-	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=gnu++11 -msse2 -mfpmath=sse -fpermissive -ffast-math ${EXTRA_COMPILER_OPTIONS}" )
++	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -msse2 -mfpmath=sse ${EXTRA_COMPILER_OPTIONS}" )
++	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -std=gnu++11 -msse2 -mfpmath=sse -fpermissive ${EXTRA_COMPILER_OPTIONS}" )
+ 
+ 	IF(WIN32)
+ 		# Some object files are too big for MinGW if not compiled with -Og (assembler says "too many sections")
+diff --git a/src/thirdparty/akaze/CMakeLists.txt b/src/thirdparty/akaze/CMakeLists.txt
+index 3042137..f9a7769 100644
+--- a/src/thirdparty/akaze/CMakeLists.txt
++++ b/src/thirdparty/akaze/CMakeLists.txt
+@@ -31,8 +31,8 @@ ENDIF(MSVC)
+ IF(CMAKE_COMPILER_IS_GNUCC)
+ 	SET( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic -Wextra -Wunused-variable" )
+ 	SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra -Wunused-variable" )
+-	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
+-	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
+ ENDIF(CMAKE_COMPILER_IS_GNUCC)
+ 
+ # ============================================================================ #
+diff --git a/src/thirdparty/daisy/CMakeLists.txt b/src/thirdparty/daisy/CMakeLists.txt
+index ebe0e5a..d640216 100644
+--- a/src/thirdparty/daisy/CMakeLists.txt
++++ b/src/thirdparty/daisy/CMakeLists.txt
+@@ -19,8 +19,8 @@ ENDIF(MSVC)
+ IF(CMAKE_COMPILER_IS_GNUCC)
+ 	SET( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic" )
+ 	SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic" )
+-	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
+-	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
+ ENDIF(CMAKE_COMPILER_IS_GNUCC)
+ 
+ SET(ALL_SRC src/corecv.cpp src/daisy.cpp src/interaction.cpp src/progress_bar.cpp src/general.cpp)
+diff --git a/src/thirdparty/kgraph/CMakeLists.txt b/src/thirdparty/kgraph/CMakeLists.txt
+index f7a9b52..9fdfd6e 100644
+--- a/src/thirdparty/kgraph/CMakeLists.txt
++++ b/src/thirdparty/kgraph/CMakeLists.txt
+@@ -15,8 +15,8 @@ ENDIF(MSVC)
+ IF(CMAKE_COMPILER_IS_GNUCC)
+ 	SET( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic" )
+ 	SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic" )
+-	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -std=c++11 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
+-	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -std=c++11 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -std=c++11 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -std=c++11 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
+ ENDIF(CMAKE_COMPILER_IS_GNUCC)
+ 
+ find_package(OpenMP REQUIRED)
+@@ -24,13 +24,15 @@ if (OPENMP_FOUND)
+     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+ endif()
+ 
+-#find_package(Boost REQUIRED COMPONENTS timer chrono system program_options)
++find_package(Boost REQUIRED COMPONENTS timer chrono system program_options)
+ 
+ set(LIB_SRC kgraph.cpp metric.cpp)
+ include_directories(${KGRAPH_SOURCE_DIR})
+ #add_library(kgraph SHARED ${LIB_SRC})
+ #add_library(kgrapha STATIC ${LIB_SRC})
+ add_library(kgraph STATIC ${LIB_SRC})
++target_link_libraries(kgraph ${Boost_LIBRARIES})
++
+ #set_target_properties(kgrapha PROPERTIES OUTPUT_NAME kgraph)
+ #add_executable(index index.cpp)
+ #add_executable(search search.cpp)
+diff --git a/src/thirdparty/liop/CMakeLists.txt b/src/thirdparty/liop/CMakeLists.txt
+index fca3164..eb06f8e 100644
+--- a/src/thirdparty/liop/CMakeLists.txt
++++ b/src/thirdparty/liop/CMakeLists.txt
+@@ -11,8 +11,8 @@ ENDIF(MSVC)
+ IF(CMAKE_COMPILER_IS_GNUCC)
+ 	SET( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic" )
+ 	SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic" )
+-	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
+-	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
+ ENDIF(CMAKE_COMPILER_IS_GNUCC)
+ 
+ SET(ALL_SRC vl_liop.c)
+diff --git a/src/thirdparty/sqlite/CMakeLists.txt b/src/thirdparty/sqlite/CMakeLists.txt
+index f60bb00..5032fc1 100644
+--- a/src/thirdparty/sqlite/CMakeLists.txt
++++ b/src/thirdparty/sqlite/CMakeLists.txt
+@@ -11,8 +11,8 @@ ENDIF(MSVC)
+ IF(CMAKE_COMPILER_IS_GNUCC)
+ 	SET( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -pedantic" )
+ 	SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic" )
+-	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
+-	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -ffast-math -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
++	SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -Wall -pedantic -msse2 -mfpmath=sse -fsched-spec-load -fomit-frame-pointer" )
+ ENDIF(CMAKE_COMPILER_IS_GNUCC)
+ 
+ SET(ALL_SRC sqlite3.c)

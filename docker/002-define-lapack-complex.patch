@@ -1,0 +1,16 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 34400ac..2a3f956 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -250,9 +250,9 @@ IF(R3D_USE_BLAS)
+ 		ENDIF(MINGW)
+ 		INCLUDE_DIRECTORIES(${BLAS_INCLUDE_DIR})
+ 		ADD_DEFINITIONS(-DEIGEN_USE_LAPACKE)
+-		IF(MSVC)
++        #IF(MSVC)
+ 			ADD_DEFINITIONS(-Dlapack_complex_float=std::complex<float> -Dlapack_complex_double=std::complex<double>)
+-		ENDIF(MSVC)
++        #ENDIF(MSVC)
+ 	ELSE (BLAS_FOUND)
+ 		MESSAGE("-- Did not find BLAS library.")
+ 	ENDIF (BLAS_FOUND)

@@ -1,0 +1,13 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 34400ac..b1373c4 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -697,7 +697,7 @@ ENDIF(TARGET openMVG_SfM_Sequential)
+ SET(REGARD3D_LINK_LIBRARIES ${REGARD3D_LINK_LIBRARIES} ${OPENSCENEGRAPH_LIBRARIES}
+ 	${Boost_LIBRARIES} daisy AKAZE fast-akaze liop kgraph sqlite ${OpenCV_LIBRARIES} ${OPENMVG_LIBRARIES}
+ 	${CERES_LIBRARIES} ${GLOG_LIBRARIES} ${SuiteSparse_LIBRARIES} ${FLANN_LIBRARIES}
+-	easyexif ${LAPACK_LIBRARIES} ${BLAS_LIBRARIES} ${ASSIMP_LIBRARIES} ${OPENGL_LIBRARIES}
++	easyexif lapacke ${LAPACK_LIBRARIES} ${BLAS_LIBRARIES} ${ASSIMP_LIBRARIES} ${OPENGL_LIBRARIES}
+ 	optimized;minilog;debug;minilog_d tinyply cpuid)
+ 	
+ IF(MKL_FOUND)
