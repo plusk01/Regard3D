@@ -95,6 +95,14 @@ RUN apt-get update -y && \
     liblapacke-dev
 RUN update-ca-certificates
 
+# I have some confusion with libopenblas. I also am confused with LAPACK.
+# It seems that the atlas version of LAPACK doesn't have all of the necessary
+# routines needed by Eigen when EIGEN_USE_LAPACKE is defined. I found this out
+# by looking at the undefined symbols reported by make and then running
+# `strings ... | grep <symbol>` on each of the lapack shared objects reported
+# by `update-alternatives` (e.g., https://github.com/xianyi/OpenBLAS/issues/1114).
+# After manually setting the LAPACK_LIBRARIES CMake var (via ccmake), Regard3D linked.
+
 ENV R3D_VERSION="0.9.5"
 RUN git clone https://github.com/rhiestan/Regard3D \
     && cd Regard3D && git checkout v${R3D_VERSION} \

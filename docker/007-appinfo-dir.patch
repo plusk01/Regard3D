@@ -1,0 +1,13 @@
+diff --git a/src/utils/UserCameraDB.cpp b/src/utils/UserCameraDB.cpp
+index c4370f3..87fcd8e 100644
+--- a/src/utils/UserCameraDB.cpp
++++ b/src/utils/UserCameraDB.cpp
+@@ -46,7 +46,7 @@ void UserCameraDB::initialize()
+ 	wxString userCameraDBFileNameSet = Regard3DSettings::getInstance().getUserCameraDBFilename();
+ 	if(userCameraDBFileNameSet.IsEmpty())
+ 	{
+-		wxString userLocalDataDir = wxStandardPaths::Get().GetUserLocalDataDir();
++		wxString userLocalDataDir = wxStandardPaths::Get().GetUserLocalDataDir() + wxString("data");
+ 		wxFileName userCameraDBFN(userLocalDataDir, wxT("usercamera.db"));
+ 		userCameraDBFileNameSet = userCameraDBFN.GetFullPath();
+ 		Regard3DSettings::getInstance().setUserCameraDBFilename(userCameraDBFileNameSet);
